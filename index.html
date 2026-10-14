@@ -61,6 +61,19 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
 .form-msg{margin:12px 0 0;font-size:14px}
 .form-msg.ok{color:#2f6f3e}
 .form-msg.err{color:#a33}
+.exit-overlay{position:fixed;inset:0;z-index:80;background:rgba(8,8,10,.6);display:none;align-items:center;justify-content:center;padding:20px}
+.exit-overlay.open{display:flex}
+.exit-card{background:var(--ivory);color:#1a1812;width:100%;max-width:440px;border-top:4px solid var(--gold);padding:32px 28px 28px;position:relative;box-sizing:border-box}
+.exit-close{position:absolute;top:12px;right:12px;width:36px;height:36px;display:flex;align-items:center;justify-content:center;background:transparent;border:0;color:#5b5646;cursor:pointer}
+.exit-close:hover{color:#1a1812}
+.exit-decline{margin:14px 0 0;font-size:14px;color:#5b5646;background:none;border:0;padding:0;text-decoration:underline;cursor:pointer}
+@media (max-width:640px){
+  .exit-overlay{align-items:flex-end;padding:0}
+  .exit-card{max-width:none;border-top:0;border-top:4px solid var(--gold)}
+}
+@media (prefers-reduced-motion:no-preference){
+  .exit-card{animation:rv .25s ease both}
+}
 @media (max-width:760px){
   section[id]{scroll-margin-top:92px}
   header{padding:10px 20px!important;gap:10px!important;justify-content:space-between!important}
@@ -359,6 +372,27 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
 
 <a href="https://wa.me/" class="wa-float" aria-label="Conversar no WhatsApp"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg></a>
 
+<div id="exitOverlay" class="exit-overlay" role="dialog" aria-modal="true" aria-labelledby="exitTitle">
+<div class="exit-card">
+<button type="button" id="exitClose" class="exit-close" aria-label="Fechar">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="5" y1="5" x2="19" y2="19"></line><line x1="19" y1="5" x2="5" y2="19"></line></svg>
+</button>
+<p id="exitTitle" style="margin:0;font-family:Teko,sans-serif;font-weight:700;font-size:34px;line-height:1.1;text-transform:uppercase;color:var(--ink)">Antes de você ir...</p>
+<p style="margin:10px 0 0;font-size:16px;color:#4a4636">Deixa seu WhatsApp que a gente te chama pra marcar sua aula experimental. Sem compromisso, sem pressa.</p>
+<form id="exitForm" style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
+<label style="display:flex;flex-direction:column;gap:6px;font-weight:500;font-size:15px">Nome
+<input type="text" id="exitNome" name="nome" autocomplete="name" required style="font:inherit;font-size:16px;color:var(--ink);background:#fff;border:1px solid rgba(8,8,10,.25);padding:10px 12px;min-height:24px">
+</label>
+<label style="display:flex;flex-direction:column;gap:6px;font-weight:500;font-size:15px">WhatsApp
+<input type="tel" id="exitWhats" name="whatsapp" autocomplete="tel" required style="font:inherit;font-size:16px;color:var(--ink);background:#fff;border:1px solid rgba(8,8,10,.25);padding:10px 12px;min-height:24px">
+</label>
+<button type="submit" id="exitSubmit" style="display:inline-block;font:inherit;border:0;background:var(--gold);color:var(--ink);padding:12px 24px;min-height:48px;cursor:pointer;font-family:Teko,sans-serif;font-weight:600;font-size:21px;letter-spacing:.04em;text-transform:uppercase">Quero que me chamem no WhatsApp</button>
+</form>
+<p id="exitMsg" class="form-msg" role="status" aria-live="polite"></p>
+<button type="button" id="exitDecline" class="exit-decline">Agora não, obrigado</button>
+</div>
+</div>
+
 <footer style="background:var(--ink);padding:24px 48px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;font-size:15px;color:#b3ad9d">
 <span>Sabai Fight, escola de Muay Thai em Americana, SP</span>
 <a href="https://www.instagram.com/sabai_fight_/" class="tl">@sabai_fight_</a>
@@ -418,6 +452,12 @@ form.addEventListener('submit', function (ev) {
   var whatsapp = (data.get('whatsapp') || '').toString();
   var experiencia = (data.get('experiencia') || '').toString();
 
+  enviarContato(nome, whatsapp, experiencia, formMsg, submitBtn, form);
+});
+
+// Função única usada pelo formulário principal e pelo modal de saída:
+// abre o WhatsApp com os dados preenchidos e salva em /api/contact.
+function enviarContato(nome, whatsapp, experiencia, msgEl, btnEl, formEl, onDone) {
   var mensagem =
     'Olá! Quero agendar minha aula experimental na Sabai Fight.\n' +
     'Nome: ' + nome + '\n' +
@@ -430,9 +470,9 @@ form.addEventListener('submit', function (ev) {
   // ser barrado pelo bloqueador de pop-up do navegador.
   window.open(waUrl, '_blank', 'noopener');
 
-  submitBtn.disabled = true;
-  formMsg.textContent = 'Abrindo o WhatsApp e salvando seu contato...';
-  formMsg.className = 'form-msg';
+  btnEl.disabled = true;
+  msgEl.textContent = 'Abrindo o WhatsApp e salvando seu contato...';
+  msgEl.className = 'form-msg';
 
   fetch(FORM_ENDPOINT, {
     method: 'POST',
@@ -441,18 +481,101 @@ form.addEventListener('submit', function (ev) {
   })
     .then(function (resp) {
       if (!resp.ok) throw new Error('request_failed');
-      formMsg.textContent = 'Recebemos seu contato! Continue a conversa no WhatsApp que abrimos.';
-      formMsg.className = 'form-msg ok';
-      form.reset();
+      msgEl.textContent = 'Recebemos seu contato! Continue a conversa no WhatsApp que abrimos.';
+      msgEl.className = 'form-msg ok';
+      formEl.reset();
+      try { localStorage.setItem('sf_contato_enviado', '1'); } catch (e) {}
+      if (onDone) onDone(true);
     })
     .catch(function () {
-      formMsg.textContent = 'O WhatsApp abriu, mas não conseguimos salvar seu contato agora. Pode mandar a mensagem mesmo assim.';
-      formMsg.className = 'form-msg err';
+      msgEl.textContent = 'O WhatsApp abriu, mas não conseguimos salvar seu contato agora. Pode mandar a mensagem mesmo assim.';
+      msgEl.className = 'form-msg err';
+      if (onDone) onDone(false);
     })
     .finally(function () {
-      submitBtn.disabled = false;
+      btnEl.disabled = false;
     });
-});
+}
+
+// ---------- Modal de saída (exit-intent) ----------
+// Mostra no máximo uma vez a cada 7 dias, só depois de algum engajamento com
+// a página, e nunca se o visitante já enviou o formulário principal.
+(function () {
+  var overlay = document.getElementById('exitOverlay');
+  var exitForm = document.getElementById('exitForm');
+  var exitMsg = document.getElementById('exitMsg');
+  var exitSubmit = document.getElementById('exitSubmit');
+  var exitClose = document.getElementById('exitClose');
+  var exitDecline = document.getElementById('exitDecline');
+
+  var COOLDOWN_DAYS = 7;
+  var shownThisSession = false;
+
+  function jaViu() {
+    try {
+      if (localStorage.getItem('sf_contato_enviado') === '1') return true;
+      var last = localStorage.getItem('sf_exit_dismissed_at');
+      if (last && (Date.now() - Number(last)) < COOLDOWN_DAYS * 24 * 60 * 60 * 1000) return true;
+    } catch (e) {}
+    return shownThisSession;
+  }
+
+  function abrir() {
+    if (jaViu() || overlay.classList.contains('open')) return;
+    shownThisSession = true;
+    overlay.classList.add('open');
+    var nomeInput = document.getElementById('exitNome');
+    if (nomeInput) nomeInput.focus();
+  }
+
+  function fechar() {
+    overlay.classList.remove('open');
+    try { localStorage.setItem('sf_exit_dismissed_at', String(Date.now())); } catch (e) {}
+  }
+
+  exitClose.addEventListener('click', fechar);
+  exitDecline.addEventListener('click', fechar);
+  overlay.addEventListener('click', function (ev) {
+    if (ev.target === overlay) fechar();
+  });
+  document.addEventListener('keydown', function (ev) {
+    if (ev.key === 'Escape' && overlay.classList.contains('open')) fechar();
+  });
+
+  exitForm.addEventListener('submit', function (ev) {
+    ev.preventDefault();
+    var nome = document.getElementById('exitNome').value.trim();
+    var whatsapp = document.getElementById('exitWhats').value.trim();
+    enviarContato(nome, whatsapp, '', exitMsg, exitSubmit, exitForm, function (ok) {
+      if (ok) setTimeout(fechar, 2500);
+    });
+  });
+
+  // Gatilho desktop: o cursor sai pela borda de cima da janela.
+  if (window.matchMedia('(pointer: fine)').matches) {
+    var minDwellReached = false;
+    setTimeout(function () { minDwellReached = true; }, 8000);
+    document.addEventListener('mouseout', function (ev) {
+      if (!minDwellReached) return;
+      if (ev.clientY <= 0 && !ev.relatedTarget) abrir();
+    });
+  }
+
+  // Fallback mobile: sem mouse pra detectar saída, então usamos "rolou bastante
+  // e voltou rápido pro topo" como sinal de quem está desistindo da página.
+  var maxScrollSeen = 0;
+  var lastScrollY = window.scrollY;
+  window.addEventListener('scroll', function () {
+    var y = window.scrollY;
+    var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    var depth = docHeight > 0 ? y / docHeight : 0;
+    if (depth > maxScrollSeen) maxScrollSeen = depth;
+    if (maxScrollSeen > 0.5 && y < lastScrollY - 40 && y < 300) {
+      abrir();
+    }
+    lastScrollY = y;
+  }, { passive: true });
+})();
 </script>
 </body>
 </html>
