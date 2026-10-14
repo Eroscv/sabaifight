@@ -396,9 +396,9 @@ document.querySelectorAll('.faq-toggle').forEach(function (btn) {
 });
 
 // ---------- Formulário de contato ----------
-// Cole aqui a URL da sua implantação do Google Apps Script (termina em /exec).
-// Enquanto estiver vazia, o formulário só mostra o aviso abaixo e não envia nada.
-var FORM_ENDPOINT = '';
+// Envia para a função de servidor em /api/contact (ver pasta api/ do projeto),
+// que grava no MongoDB e, se configurado, encaminha também para o Google Sheets.
+var FORM_ENDPOINT = '/api/contact';
 
 var form = document.getElementById('contactForm');
 var formMsg = document.getElementById('formMsg');
@@ -407,23 +407,22 @@ var submitBtn = document.getElementById('submitBtn');
 form.addEventListener('submit', function (ev) {
   ev.preventDefault();
 
-  if (!FORM_ENDPOINT) {
-    formMsg.textContent = 'Formulário ainda não conectado. Chame no WhatsApp por enquanto.';
-    formMsg.className = 'form-msg err';
-    return;
-  }
-
   submitBtn.disabled = true;
   formMsg.textContent = 'Enviando...';
   formMsg.className = 'form-msg';
 
+  var data = new FormData(form);
   fetch(FORM_ENDPOINT, {
     method: 'POST',
-    mode: 'no-cors',
-    body: new FormData(form)
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      nome: data.get('nome'),
+      whatsapp: data.get('whatsapp'),
+      experiencia: data.get('experiencia')
+    })
   })
-    .then(function () {
-      // no-cors não deixa ler a resposta; se o fetch não rejeitou, assumimos sucesso.
+    .then(function (resp) {
+      if (!resp.ok) throw new Error('request_failed');
       formMsg.textContent = 'Recebemos seu contato! Te chamamos no WhatsApp em breve.';
       formMsg.className = 'form-msg ok';
       form.reset();
