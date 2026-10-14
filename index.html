@@ -396,9 +396,15 @@ document.querySelectorAll('.faq-toggle').forEach(function (btn) {
 });
 
 // ---------- Formulário de contato ----------
-// Envia para a função de servidor em /api/contact (ver pasta api/ do projeto),
-// que grava no MongoDB e, se configurado, encaminha também para o Google Sheets.
+// Ao enviar: abre o WhatsApp com os dados já preenchidos na mensagem E, em
+// paralelo, salva o contato em /api/contact (que grava no MongoDB e, se
+// SHEETS_WEBHOOK_URL estiver configurada no servidor, encaminha pro Sheets também).
 var FORM_ENDPOINT = '/api/contact';
+
+// Número da escola em formato internacional, só dígitos (ex: "5519999999999").
+// Enquanto vazio, o link abre o seletor de contato do WhatsApp em vez de ir
+// direto pro chat da escola.
+var WHATSAPP_NUMBER = '';
 
 var form = document.getElementById('contactForm');
 var formMsg = document.getElementById('formMsg');
@@ -407,28 +413,40 @@ var submitBtn = document.getElementById('submitBtn');
 form.addEventListener('submit', function (ev) {
   ev.preventDefault();
 
+  var data = new FormData(form);
+  var nome = (data.get('nome') || '').toString();
+  var whatsapp = (data.get('whatsapp') || '').toString();
+  var experiencia = (data.get('experiencia') || '').toString();
+
+  var mensagem =
+    'Olá! Quero agendar minha aula experimental na Sabai Fight.\n' +
+    'Nome: ' + nome + '\n' +
+    'Meu WhatsApp: ' + whatsapp + '\n' +
+    'Já treinei antes: ' + (experiencia || 'não informado');
+
+  var waUrl = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(mensagem);
+
+  // Abre o WhatsApp já no clique (síncrono), antes de qualquer fetch, pra não
+  // ser barrado pelo bloqueador de pop-up do navegador.
+  window.open(waUrl, '_blank', 'noopener');
+
   submitBtn.disabled = true;
-  formMsg.textContent = 'Enviando...';
+  formMsg.textContent = 'Abrindo o WhatsApp e salvando seu contato...';
   formMsg.className = 'form-msg';
 
-  var data = new FormData(form);
   fetch(FORM_ENDPOINT, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      nome: data.get('nome'),
-      whatsapp: data.get('whatsapp'),
-      experiencia: data.get('experiencia')
-    })
+    body: JSON.stringify({ nome: nome, whatsapp: whatsapp, experiencia: experiencia })
   })
     .then(function (resp) {
       if (!resp.ok) throw new Error('request_failed');
-      formMsg.textContent = 'Recebemos seu contato! Te chamamos no WhatsApp em breve.';
+      formMsg.textContent = 'Recebemos seu contato! Continue a conversa no WhatsApp que abrimos.';
       formMsg.className = 'form-msg ok';
       form.reset();
     })
     .catch(function () {
-      formMsg.textContent = 'Não conseguimos enviar agora. Chame no WhatsApp, por favor.';
+      formMsg.textContent = 'O WhatsApp abriu, mas não conseguimos salvar seu contato agora. Pode mandar a mensagem mesmo assim.';
       formMsg.className = 'form-msg err';
     })
     .finally(function () {
