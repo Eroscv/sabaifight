@@ -1,0 +1,441 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sabai Fight | Escola de Muay Thai em Americana, SP</title>
+<meta name="description" content="Escola de Muay Thai em Americana, SP, para quem nunca treinou e para quem já quer competir. Agende sua aula experimental e venha treinar com a gente.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Sabai Fight">
+<meta property="og:title" content="Sabai Fight | Escola de Muay Thai em Americana, SP">
+<meta property="og:description" content="Escola de Muay Thai em Americana, SP, para quem nunca treinou e para quem já quer competir. Agende sua aula experimental.">
+<meta property="og:image" content="logo.png">
+<meta property="og:image:alt" content="Elefante dourado, logo da Sabai Fight">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sabai Fight | Escola de Muay Thai em Americana, SP">
+<meta name="twitter:description" content="Escola de Muay Thai em Americana, SP, para quem nunca treinou e para quem já quer competir. Agende sua aula experimental.">
+<meta name="twitter:image" content="logo.png">
+<link rel="icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Teko:wght@500;600;700&family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --gold:#C9A04A;
+  --gold-lt:#E3C47A;
+  --gold-dk:#7F5E1B;
+  --ink:#08080a;
+  --ivory:#F4EFE3;
+}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ink);color:#EDE7D8;font-family:Ubuntu,system-ui,sans-serif;font-size:18px;line-height:1.7}
+a{color:inherit}
+section[id]{scroll-margin-top:84px}
+.ico{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;border:1px solid rgba(201,160,74,.55);color:#E3C47A;transition:background-color .25s ease,color .25s ease,border-color .25s ease}
+.ico:hover{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+.ico-dk{border-color:var(--ink);color:var(--ink)}
+.ico-dk:hover{background:var(--ink);color:var(--gold-lt);border-color:var(--ink)}
+@keyframes rv{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:no-preference){
+  @supports (animation-timeline:view()){
+    section:not(#topo)>div{animation:rv linear both;animation-timeline:view();animation-range:entry 0% entry 40%}
+  }
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+.burger{display:none;align-items:center;justify-content:center;width:44px;height:44px;background:transparent;border:1px solid rgba(201,160,74,.55);color:#E3C47A;cursor:pointer;flex-shrink:0}
+.burger:hover{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+#mobileMenu{display:none}
+#mobileMenu.open{display:flex}
+@media (min-width:761px){#mobileMenu{display:none!important}}
+.wa-float{position:fixed;right:20px;bottom:20px;z-index:60;width:56px;height:56px;border-radius:50%;background:var(--gold);color:var(--ink);display:flex;align-items:center;justify-content:center;transition:transform .2s ease,background-color .2s ease}
+.wa-float:hover{background:var(--gold-lt);transform:scale(1.06)}
+.faq-q:hover{color:#5b5646}
+.faq-chevron{transition:transform .25s ease}
+.faq-item.open .faq-chevron{transform:rotate(180deg)}
+.faq-item .faq-a{display:none;margin:0 0 24px;max-width:62ch;color:#4a4636}
+.faq-item.open .faq-a{display:block}
+.tl{text-decoration:none}
+.tl:hover{color:var(--gold)}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.cta:hover{background:var(--gold-lt)}
+.form-msg{margin:12px 0 0;font-size:14px}
+.form-msg.ok{color:#2f6f3e}
+.form-msg.err{color:#a33}
+@media (max-width:760px){
+  section[id]{scroll-margin-top:92px}
+  header{padding:10px 20px!important;gap:10px!important;justify-content:space-between!important}
+  header nav{display:none!important}
+  .burger{display:flex!important}
+  section>div{padding-left:20px!important;padding-right:20px!important}
+  section[id]:not(#topo)>div{padding-top:56px!important;padding-bottom:56px!important}
+  #topo>div{padding:36px 20px 48px!important;min-height:0!important}
+  #topo h1{font-size:clamp(52px,16vw,72px)!important}
+  #topo p{font-size:18px!important}
+  .cta{padding:12px 24px!important;font-size:21px!important;max-width:100%;box-sizing:border-box}
+  section>div h2{font-size:clamp(44px,13vw,64px)!important}
+  footer{padding:20px!important}
+  #aulas table{min-width:0!important}
+  #aulas thead{display:none}
+  #aulas table,#aulas tbody,#aulas tr,#aulas th,#aulas td{display:block}
+  #aulas tr{padding:16px 0}
+  #aulas th,#aulas td{padding:2px 0!important}
+  #aulas th{font-size:20px;color:#E3C47A}
+  #aulas td:nth-of-type(1)::before{content:"Dias: ";color:#ABA597}
+  #aulas td:nth-of-type(2)::before{content:"Horário: ";color:#ABA597}
+  #aulas td:nth-of-type(3)::before{content:"Para quem: ";color:#ABA597}
+  #contato form{max-width:none!important}
+}
+</style>
+</head>
+<body>
+<div style="width:100%;background:var(--ink)">
+
+<!-- Cabeçalho -->
+<header style="position:sticky;top:0;z-index:50;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 32px;padding:14px 48px;background:var(--ink);border-bottom:1px solid rgba(201,160,74,.35)">
+<a href="#topo" class="tl" style="display:flex;align-items:center;gap:12px">
+<img src="logo.png" alt="Elefante dourado, logo da Sabai Fight" style="height:60px;width:auto;display:block;mix-blend-mode:lighten">
+<span style="font-family:Teko,sans-serif;font-weight:700;font-size:32px;line-height:1;letter-spacing:.03em;text-transform:uppercase;color:var(--gold)">Sabai Fight</span>
+</a>
+<nav style="display:flex;flex-wrap:wrap;align-items:center;gap:4px 28px;font-family:Teko,sans-serif;font-weight:500;font-size:22px;letter-spacing:.06em;text-transform:uppercase">
+<a href="#historia" class="tl">Sobre nós</a>
+<a href="#aulas" class="tl">Aulas</a>
+<a href="#onde" class="tl">Onde estamos</a>
+<a href="#faq" class="tl">Dúvidas</a>
+<a href="#contato" class="tl">Contato</a>
+<span style="display:flex;align-items:center;gap:10px">
+<a href="https://wa.me/" class="ico" aria-label="Abrir WhatsApp da Sabai Fight"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+<a href="https://www.instagram.com/sabai_fight_/" class="ico" aria-label="Abrir Instagram @sabai_fight_"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+</span>
+</nav>
+<button type="button" id="burgerBtn" class="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileMenu">
+<svg id="iconClose" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" style="display:none"><line x1="5" y1="5" x2="19" y2="19"></line><line x1="19" y1="5" x2="5" y2="19"></line></svg>
+<svg id="iconOpen" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="17" x2="20" y2="17"></line></svg>
+</button>
+</header>
+<div id="mobileMenu" style="position:sticky;top:80px;z-index:49;flex-direction:column;background:var(--ink);border-bottom:1px solid rgba(201,160,74,.35)">
+<div style="padding:4px 20px 24px;display:flex;flex-direction:column">
+<a href="#historia" class="tl mobile-link" style="padding:14px 0;font-family:Teko,sans-serif;font-size:26px;letter-spacing:.04em;text-transform:uppercase;border-bottom:1px solid rgba(201,160,74,.18)">Sobre nós</a>
+<a href="#aulas" class="tl mobile-link" style="padding:14px 0;font-family:Teko,sans-serif;font-size:26px;letter-spacing:.04em;text-transform:uppercase;border-bottom:1px solid rgba(201,160,74,.18)">Aulas</a>
+<a href="#onde" class="tl mobile-link" style="padding:14px 0;font-family:Teko,sans-serif;font-size:26px;letter-spacing:.04em;text-transform:uppercase;border-bottom:1px solid rgba(201,160,74,.18)">Onde estamos</a>
+<a href="#faq" class="tl mobile-link" style="padding:14px 0;font-family:Teko,sans-serif;font-size:26px;letter-spacing:.04em;text-transform:uppercase;border-bottom:1px solid rgba(201,160,74,.18)">Dúvidas</a>
+<a href="#contato" class="tl mobile-link" style="padding:14px 0;font-family:Teko,sans-serif;font-size:26px;letter-spacing:.04em;text-transform:uppercase">Contato</a>
+<div style="display:flex;align-items:center;gap:12px;padding-top:16px">
+<a href="https://wa.me/" class="ico" aria-label="Abrir WhatsApp da Sabai Fight"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg></a>
+<a href="https://www.instagram.com/sabai_fight_/" class="ico" aria-label="Abrir Instagram @sabai_fight_"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle></svg></a>
+</div>
+</div>
+</div>
+
+<!-- Hero -->
+<section id="topo" style="position:relative;overflow:hidden;background:radial-gradient(ellipse 55% 80% at 78% 50%, rgba(201,160,74,.16), rgba(8,8,10,0) 70%), var(--ink)">
+<div style="position:relative;display:flex;flex-wrap:wrap;align-items:center;gap:24px 32px;max-width:1360px;margin:0 auto;padding:72px 48px 96px;min-height:560px;box-sizing:border-box">
+<div style="flex:1 1 460px;min-width:0">
+<p style="margin:0;font-size:15px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-lt)">Escola de Muay Thai</p>
+<h1 style="margin:12px 0 0;font-family:Teko,sans-serif;font-weight:700;font-size:clamp(64px, 10vw, 148px);line-height:.92;text-transform:uppercase;color:#fff">Muay Thai<br>em Americana</h1>
+<p style="margin:24px 0 0;max-width:46ch;font-size:20px;color:#EDE7D8">Para quem nunca treinou e para quem já tem luta marcada. Você começa com uma aula experimental, para sentir como é antes de se matricular.</p>
+<div style="margin-top:36px">
+<a href="#contato" class="cta" style="display:inline-block;background:var(--gold);color:var(--ink);transform:skewX(-14deg);padding:14px 40px;min-height:24px;font-family:Teko,sans-serif;font-weight:600;font-size:24px;letter-spacing:.06em;text-transform:uppercase;text-decoration:none">
+<span style="display:inline-block;transform:skewX(14deg)">Agende sua aula experimental</span>
+</a>
+</div>
+</div>
+<div style="flex:1 1 320px;min-width:0;display:flex;justify-content:center">
+<img src="logo.png" alt="Elefante dourado com uma corda amarrada na pata" style="width:min(540px, 100%);height:auto;display:block;mix-blend-mode:lighten">
+</div>
+</div>
+</section>
+
+<!-- Pré-venda -->
+<section style="background:var(--gold);color:var(--ink)">
+<div style="max-width:1360px;margin:0 auto;padding:18px 48px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 24px">
+<span style="font-family:Teko,sans-serif;font-weight:700;font-size:32px;line-height:1.1;text-transform:uppercase">Pré-venda em breve</span>
+<span style="font-weight:500">Os planos abrem primeiro no Instagram @sabai_fight_.</span>
+</div>
+</section>
+
+<!-- Nossa história -->
+<section id="historia" style="background:var(--ivory);color:#1a1812">
+<div style="display:flex;flex-wrap:wrap;align-items:center;gap:48px 64px;max-width:1360px;margin:0 auto;padding:96px 48px">
+<div role="img" aria-label="Espaço reservado para foto da escola" style="flex:1 1 380px;min-width:0;aspect-ratio:4 / 3;background:#ece6d5;display:flex;align-items:center;justify-content:center;font-family:Teko,sans-serif;font-size:26px;letter-spacing:.06em;text-transform:uppercase;color:#a39b86">[Foto da escola]</div>
+<div style="flex:1 1 420px;min-width:0;max-width:64ch">
+<p style="margin:0;font-size:15px;letter-spacing:.3em;text-transform:uppercase;color:#5b5646">Sobre nós</p>
+<h2 style="margin:4px 0 0;font-family:Teko,sans-serif;font-weight:600;font-size:clamp(52px, 6vw, 88px);line-height:1;text-transform:uppercase;color:var(--ink)">Nossa história</h2>
+<p style="margin:24px 0 0">O Muay Thai nasceu na Tailândia e usa punhos, cotovelos, joelhos e canelas, as oito armas. A Sabai Fight ensina essa arte em Americana com técnica limpa, do primeiro soco ao primeiro sparring.</p>
+<p style="margin:16px 0 0">Sabai, em tailandês, remete a bem-estar e tranquilidade. Aqui, isso quer dizer um ambiente acolhedor pra quem está começando, com o rigor técnico que leva quem quer competir.</p>
+<p style="margin:16px 0 0;color:#5b5646">[HISTÓRIA DO PROFESSOR: ano de fundação, graduação, trajetória e lutas]</p>
+</div>
+</div>
+</section>
+
+<!-- Faixa de imagem -->
+<section style="position:relative;background:var(--gold)">
+<div style="max-width:1360px;margin:0 auto;padding:120px 48px;text-align:center">
+<h2 style="margin:0;font-family:Teko,sans-serif;font-weight:700;font-size:clamp(56px, 8vw, 120px);line-height:1;text-transform:uppercase;color:var(--ink)">A Sabai Fight</h2>
+<p style="margin:8px 0 0;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:rgba(8,8,10,.7)">[Foto de fundo: alunos treinando]</p>
+</div>
+</section>
+
+<!-- Benefícios -->
+<section style="background:var(--ivory);color:#1a1812">
+<div style="max-width:1360px;margin:0 auto;padding:96px 48px">
+<h2 style="margin:0;font-family:Teko,sans-serif;font-weight:600;font-size:clamp(48px, 6vw, 84px);line-height:1;text-transform:uppercase;color:var(--gold-dk)">Benefícios do Muay Thai</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));gap:32px;margin-top:48px">
+<div style="border-top:4px solid var(--ink);padding-top:16px">
+<h3 style="margin:0;font-family:Teko,sans-serif;font-weight:600;font-size:34px;line-height:1.1;text-transform:uppercase">Condicionamento</h3>
+<p style="margin:8px 0 0">Você ganha fôlego, força e coordenação em um treino completo. Não precisa malhar em outro lugar.</p>
+</div>
+<div style="border-top:4px solid var(--ink);padding-top:16px">
+<h3 style="margin:0;font-family:Teko,sans-serif;font-weight:600;font-size:34px;line-height:1.1;text-transform:uppercase">Defesa pessoal</h3>
+<p style="margin:8px 0 0">Você aprende a golpear, defender e se posicionar com segurança.</p>
+</div>
+<div style="border-top:4px solid var(--ink);padding-top:16px">
+<h3 style="margin:0;font-family:Teko,sans-serif;font-weight:600;font-size:34px;line-height:1.1;text-transform:uppercase">Disciplina</h3>
+<p style="margin:8px 0 0">Você entra numa rotina de horário fixo e sai de cada aula com mais foco e respeito pelo mestre e pelos colegas.</p>
+</div>
+<div style="border-top:4px solid var(--ink);padding-top:16px">
+<h3 style="margin:0;font-family:Teko,sans-serif;font-weight:600;font-size:34px;line-height:1.1;text-transform:uppercase">Alívio do estresse</h3>
+<p style="margin:8px 0 0">Uma hora de treino intenso e a cabeça esvazia.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Aulas -->
+<section id="aulas" style="background:var(--ink)">
+<div style="max-width:1360px;margin:0 auto;padding:96px 48px">
+<h2 style="margin:0;font-family:Teko,sans-serif;font-weight:600;font-size:clamp(48px, 6vw, 84px);line-height:1;text-transform:uppercase;color:var(--gold)">Aulas e horários</h2>
+<p style="margin:12px 0 0;max-width:56ch">A primeira aula é experimental, pra você decidir com calma. Escolha a turma que encaixa na sua rotina.</p>
+<div style="margin-top:40px;overflow-x:auto">
+<table style="width:100%;min-width:560px;border-collapse:collapse;text-align:left">
+<thead>
+<tr style="border-bottom:2px solid var(--gold)">
+<th scope="col" style="padding:12px 16px 12px 0;font-family:Teko,sans-serif;font-weight:500;font-size:24px;letter-spacing:.06em;text-transform:uppercase;color:var(--gold)">Turma</th>
+<th scope="col" style="padding:12px 16px;font-family:Teko,sans-serif;font-weight:500;font-size:24px;letter-spacing:.06em;text-transform:uppercase;color:var(--gold)">Dias</th>
+<th scope="col" style="padding:12px 16px;font-family:Teko,sans-serif;font-weight:500;font-size:24px;letter-spacing:.06em;text-transform:uppercase;color:var(--gold)">Horário</th>
+<th scope="col" style="padding:12px 0 12px 16px;font-family:Teko,sans-serif;font-weight:500;font-size:24px;letter-spacing:.06em;text-transform:uppercase;color:var(--gold)">Para quem</th>
+</tr>
+</thead>
+<tbody>
+<tr style="border-bottom:1px solid rgba(201,160,74,.3)">
+<th scope="row" style="padding:16px 16px 16px 0;font-weight:500">Muay Thai iniciante</th>
+<td style="padding:16px">[DIAS]</td><td style="padding:16px">[HORÁRIO]</td>
+<td style="padding:16px 0 16px 16px">Primeiro contato com a arte</td>
+</tr>
+<tr style="border-bottom:1px solid rgba(201,160,74,.3)">
+<th scope="row" style="padding:16px 16px 16px 0;font-weight:500">Muay Thai avançado</th>
+<td style="padding:16px">[DIAS]</td><td style="padding:16px">[HORÁRIO]</td>
+<td style="padding:16px 0 16px 16px">Quem já treina e quer sparring</td>
+</tr>
+<tr style="border-bottom:1px solid rgba(201,160,74,.3)">
+<th scope="row" style="padding:16px 16px 16px 0;font-weight:500">Condicionamento</th>
+<td style="padding:16px">[DIAS]</td><td style="padding:16px">[HORÁRIO]</td>
+<td style="padding:16px 0 16px 16px">Fôlego e força, sem contato</td>
+</tr>
+<tr>
+<th scope="row" style="padding:16px 16px 16px 0;font-weight:500">Equipe de competição</th>
+<td style="padding:16px">[DIAS]</td><td style="padding:16px">[HORÁRIO]</td>
+<td style="padding:16px 0 16px 16px">Atletas com data de luta</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+
+<!-- Onde estamos -->
+<section id="onde" style="background:var(--ivory);color:#1a1812">
+<div style="display:flex;flex-wrap:wrap;gap:32px 64px;max-width:1360px;margin:0 auto;padding:96px 48px">
+<div style="flex:1 1 340px;min-width:0">
+<p style="margin:0;font-size:15px;letter-spacing:.3em;text-transform:uppercase;color:#5b5646">Venha treinar</p>
+<h2 style="margin:4px 0 0;font-family:Teko,sans-serif;font-weight:600;font-size:clamp(48px, 6vw, 84px);line-height:1;text-transform:uppercase;color:var(--ink)">Onde estamos</h2>
+</div>
+<div style="flex:1 1 340px;min-width:0">
+<h3 style="margin:0;font-family:Teko,sans-serif;font-weight:600;font-size:40px;line-height:1.1;text-transform:uppercase;color:var(--gold-dk)">Americana</h3>
+<p style="margin:8px 0 0">[RUA, NÚMERO, BAIRRO]</p>
+<h3 style="margin:32px 0 0;font-family:Teko,sans-serif;font-weight:600;font-size:40px;line-height:1.1;text-transform:uppercase;color:var(--gold-dk)">Funcionamento</h3>
+<p style="margin:8px 0 0">[DIAS E PERÍODOS: manhã, tarde e noite]</p>
+</div>
+</div>
+</section>
+
+<!-- Depoimentos -->
+<section style="background:var(--ink)">
+<div style="max-width:1360px;margin:0 auto;padding:96px 48px">
+<p style="margin:0;font-size:15px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-lt)">Quem já treina com a gente</p>
+<h2 style="margin:4px 0 0;font-family:Teko,sans-serif;font-weight:600;font-size:clamp(48px, 6vw, 84px);line-height:1;text-transform:uppercase;color:#fff">Depoimentos</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:32px;margin-top:48px">
+<figure style="margin:0;border-top:2px solid var(--gold)">
+<blockquote style="margin:20px 0 0;font-size:19px;color:#EDE7D8">[Depoimento de um aluno sobre a experiência na Sabai Fight]</blockquote>
+<figcaption style="margin-top:16px;font-family:Teko,sans-serif;font-size:22px;letter-spacing:.03em;text-transform:uppercase;color:var(--gold-lt)">[Nome do aluno] · [tempo de treino]</figcaption>
+</figure>
+<figure style="margin:0;border-top:2px solid var(--gold)">
+<blockquote style="margin:20px 0 0;font-size:19px;color:#EDE7D8">[Depoimento de um aluno sobre a experiência na Sabai Fight]</blockquote>
+<figcaption style="margin-top:16px;font-family:Teko,sans-serif;font-size:22px;letter-spacing:.03em;text-transform:uppercase;color:var(--gold-lt)">[Nome do aluno] · [tempo de treino]</figcaption>
+</figure>
+<figure style="margin:0;border-top:2px solid var(--gold)">
+<blockquote style="margin:20px 0 0;font-size:19px;color:#EDE7D8">[Depoimento de um aluno sobre a experiência na Sabai Fight]</blockquote>
+<figcaption style="margin-top:16px;font-family:Teko,sans-serif;font-size:22px;letter-spacing:.03em;text-transform:uppercase;color:var(--gold-lt)">[Nome do aluno] · [tempo de treino]</figcaption>
+</figure>
+</div>
+</div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" style="background:var(--ivory);color:#1a1812">
+<div style="max-width:900px;margin:0 auto;padding:96px 48px">
+<p style="margin:0;font-size:15px;letter-spacing:.3em;text-transform:uppercase;color:#5b5646">Antes de começar</p>
+<h2 style="margin:4px 0 0;font-family:Teko,sans-serif;font-weight:600;font-size:clamp(48px, 6vw, 84px);line-height:1;text-transform:uppercase;color:var(--ink)">Dúvidas comuns</h2>
+<div style="margin-top:32px">
+
+<div class="faq-item" style="border-bottom:1px solid rgba(26,24,18,.18)">
+<button type="button" class="faq-q faq-toggle" aria-expanded="false" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;background:transparent;border:0;padding:22px 0;text-align:left;font:inherit;font-weight:600;font-size:21px;color:#1a1812;cursor:pointer">
+<span>Preciso ter experiência para começar?</span>
+<svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><polyline points="6 9 12 15 18 9"></polyline></svg>
+</button>
+<p class="faq-a">Não. As aulas para iniciantes partem do zero.</p>
+</div>
+
+<div class="faq-item" style="border-bottom:1px solid rgba(26,24,18,.18)">
+<button type="button" class="faq-q faq-toggle" aria-expanded="false" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;background:transparent;border:0;padding:22px 0;text-align:left;font:inherit;font-weight:600;font-size:21px;color:#1a1812;cursor:pointer">
+<span>Preciso estar em forma para treinar?</span>
+<svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><polyline points="6 9 12 15 18 9"></polyline></svg>
+</button>
+<p class="faq-a">Não. O condicionamento vem com o treino; a maioria começa sem preparo físico nenhum.</p>
+</div>
+
+<div class="faq-item" style="border-bottom:1px solid rgba(26,24,18,.18)">
+<button type="button" class="faq-q faq-toggle" aria-expanded="false" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;background:transparent;border:0;padding:22px 0;text-align:left;font:inherit;font-weight:600;font-size:21px;color:#1a1812;cursor:pointer">
+<span>Qual a idade mínima para treinar?</span>
+<svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><polyline points="6 9 12 15 18 9"></polyline></svg>
+</button>
+<p class="faq-a">[IDADE MÍNIMA ACEITA PELA ESCOLA]</p>
+</div>
+
+<div class="faq-item" style="border-bottom:1px solid rgba(26,24,18,.18)">
+<button type="button" class="faq-q faq-toggle" aria-expanded="false" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;background:transparent;border:0;padding:22px 0;text-align:left;font:inherit;font-weight:600;font-size:21px;color:#1a1812;cursor:pointer">
+<span>A escola empresta equipamento na aula experimental?</span>
+<svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><polyline points="6 9 12 15 18 9"></polyline></svg>
+</button>
+<p class="faq-a">[RESPOSTA SOBRE LUVA, BANDAGEM E CANELEIRA NA AULA EXPERIMENTAL]</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- Contato -->
+<section id="contato" style="background:var(--gold);color:var(--ink)">
+<div style="display:flex;flex-wrap:wrap;gap:40px 64px;max-width:1360px;margin:0 auto;padding:96px 48px">
+<div style="flex:1 1 340px;min-width:0">
+<h2 style="margin:0;font-family:Teko,sans-serif;font-weight:700;font-size:clamp(52px, 6.5vw, 96px);line-height:.98;text-transform:uppercase">Contate-nos</h2>
+<p style="margin:16px 0 0;max-width:40ch;font-weight:500">Chame no WhatsApp ou deixe seu contato abaixo. Pra primeira aula, não precisa levar equipamento.</p>
+<p style="margin:28px 0 0;font-size:15px;letter-spacing:.24em;text-transform:uppercase">WhatsApp</p>
+<p style="margin:0;font-family:Teko,sans-serif;font-weight:600;font-size:44px;line-height:1.1">[NÚMERO]</p>
+<div style="margin-top:24px;display:flex;flex-wrap:wrap;align-items:center;gap:12px">
+<a href="https://wa.me/" class="ico ico-dk" aria-label="Abrir WhatsApp da Sabai Fight"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+<a href="https://www.instagram.com/sabai_fight_/" class="ico ico-dk" aria-label="Abrir Instagram @sabai_fight_"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+<span style="font-weight:700">@sabai_fight_</span>
+</div>
+</div>
+<form id="contactForm" style="flex:1 1 340px;min-width:0;max-width:520px;display:flex;flex-direction:column;gap:20px">
+<label style="display:flex;flex-direction:column;gap:6px;font-weight:500">Nome
+<input type="text" name="nome" autocomplete="name" required style="font:inherit;color:var(--ink);background:transparent;border:0;border-bottom:2px solid var(--ink);padding:10px 0;min-height:24px">
+</label>
+<label style="display:flex;flex-direction:column;gap:6px;font-weight:500">WhatsApp
+<input type="tel" name="whatsapp" autocomplete="tel" required style="font:inherit;color:var(--ink);background:transparent;border:0;border-bottom:2px solid var(--ink);padding:10px 0;min-height:24px">
+</label>
+<label style="display:flex;flex-direction:column;gap:6px;font-weight:500">Já treinou alguma luta? <span style="font-weight:400;color:rgba(8,8,10,.6)">(opcional)</span>
+<input type="text" name="experiencia" style="font:inherit;color:var(--ink);background:transparent;border:0;border-bottom:2px solid var(--ink);padding:10px 0;min-height:24px">
+</label>
+<div>
+<button type="submit" id="submitBtn" style="display:inline-block;font:inherit;border:0;background:var(--ink);color:var(--gold-lt);transform:skewX(-14deg);padding:14px 40px;min-height:48px;cursor:pointer">
+<span style="display:inline-block;transform:skewX(14deg);font-family:Teko,sans-serif;font-weight:600;font-size:24px;letter-spacing:.06em;text-transform:uppercase">Quero minha aula experimental</span>
+</button>
+<p id="formMsg" class="form-msg" role="status" aria-live="polite">Usamos seu contato só para combinar sua aula. Sem spam.</p>
+</div>
+</form>
+</div>
+</section>
+
+<a href="https://wa.me/" class="wa-float" aria-label="Conversar no WhatsApp"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg></a>
+
+<footer style="background:var(--ink);padding:24px 48px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;font-size:15px;color:#b3ad9d">
+<span>Sabai Fight, escola de Muay Thai em Americana, SP</span>
+<a href="https://www.instagram.com/sabai_fight_/" class="tl">@sabai_fight_</a>
+</footer>
+
+</div>
+
+<script>
+// ---------- Menu mobile ----------
+var burgerBtn = document.getElementById('burgerBtn');
+var mobileMenu = document.getElementById('mobileMenu');
+var iconOpen = document.getElementById('iconOpen');
+var iconClose = document.getElementById('iconClose');
+
+function setMenu(open) {
+  mobileMenu.classList.toggle('open', open);
+  burgerBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  iconOpen.style.display = open ? 'none' : 'block';
+  iconClose.style.display = open ? 'block' : 'none';
+}
+burgerBtn.addEventListener('click', function () {
+  setMenu(!mobileMenu.classList.contains('open'));
+});
+document.querySelectorAll('.mobile-link').forEach(function (a) {
+  a.addEventListener('click', function () { setMenu(false); });
+});
+
+// ---------- FAQ accordion ----------
+document.querySelectorAll('.faq-toggle').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    var item = btn.closest('.faq-item');
+    var isOpen = item.classList.toggle('open');
+    btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+});
+
+// ---------- Formulário de contato ----------
+// Cole aqui a URL da sua implantação do Google Apps Script (termina em /exec).
+// Enquanto estiver vazia, o formulário só mostra o aviso abaixo e não envia nada.
+var FORM_ENDPOINT = '';
+
+var form = document.getElementById('contactForm');
+var formMsg = document.getElementById('formMsg');
+var submitBtn = document.getElementById('submitBtn');
+
+form.addEventListener('submit', function (ev) {
+  ev.preventDefault();
+
+  if (!FORM_ENDPOINT) {
+    formMsg.textContent = 'Formulário ainda não conectado. Chame no WhatsApp por enquanto.';
+    formMsg.className = 'form-msg err';
+    return;
+  }
+
+  submitBtn.disabled = true;
+  formMsg.textContent = 'Enviando...';
+  formMsg.className = 'form-msg';
+
+  fetch(FORM_ENDPOINT, {
+    method: 'POST',
+    mode: 'no-cors',
+    body: new FormData(form)
+  })
+    .then(function () {
+      // no-cors não deixa ler a resposta; se o fetch não rejeitou, assumimos sucesso.
+      formMsg.textContent = 'Recebemos seu contato! Te chamamos no WhatsApp em breve.';
+      formMsg.className = 'form-msg ok';
+      form.reset();
+    })
+    .catch(function () {
+      formMsg.textContent = 'Não conseguimos enviar agora. Chame no WhatsApp, por favor.';
+      formMsg.className = 'form-msg err';
+    })
+    .finally(function () {
+      submitBtn.disabled = false;
+    });
+});
+</script>
+</body>
+</html>
