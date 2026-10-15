@@ -93,9 +93,8 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
   #aulas tr{padding:16px 0}
   #aulas th,#aulas td{padding:2px 0!important}
   #aulas th{font-size:20px;color:#E3C47A}
-  #aulas td:nth-of-type(1)::before{content:"Dias: ";color:#ABA597}
-  #aulas td:nth-of-type(2)::before{content:"Horário: ";color:#ABA597}
-  #aulas td:nth-of-type(3)::before{content:"Para quem: ";color:#ABA597}
+  #aulas td:nth-of-type(1)::before{content:"Manhã: ";color:#ABA597}
+  #aulas td:nth-of-type(2)::before{content:"Tarde/noite: ";color:#ABA597}
   #contato form{max-width:none!important}
 }
 </style>
@@ -217,37 +216,26 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
 <section id="aulas" style="background:var(--ink)">
 <div style="max-width:1360px;margin:0 auto;padding:96px 48px">
 <h2 style="margin:0;font-family:Teko,sans-serif;font-weight:600;font-size:clamp(48px, 6vw, 84px);line-height:1;text-transform:uppercase;color:var(--gold)">Aulas e horários</h2>
-<p style="margin:12px 0 0;max-width:56ch">A primeira aula é experimental, pra você decidir com calma. Escolha a turma que encaixa na sua rotina.</p>
+<p style="margin:12px 0 0;max-width:56ch">A primeira aula é experimental, pra você decidir com calma. Tem turma infantil (kids) e adulta em todos os horários.</p>
 <div style="margin-top:40px;overflow-x:auto">
 <table style="width:100%;min-width:560px;border-collapse:collapse;text-align:left">
 <thead>
 <tr style="border-bottom:2px solid var(--gold)">
-<th scope="col" style="padding:12px 16px 12px 0;font-family:Teko,sans-serif;font-weight:500;font-size:24px;letter-spacing:.06em;text-transform:uppercase;color:var(--gold)">Turma</th>
-<th scope="col" style="padding:12px 16px;font-family:Teko,sans-serif;font-weight:500;font-size:24px;letter-spacing:.06em;text-transform:uppercase;color:var(--gold)">Dias</th>
-<th scope="col" style="padding:12px 16px;font-family:Teko,sans-serif;font-weight:500;font-size:24px;letter-spacing:.06em;text-transform:uppercase;color:var(--gold)">Horário</th>
-<th scope="col" style="padding:12px 0 12px 16px;font-family:Teko,sans-serif;font-weight:500;font-size:24px;letter-spacing:.06em;text-transform:uppercase;color:var(--gold)">Para quem</th>
+<th scope="col" style="padding:12px 16px 12px 0;font-family:Teko,sans-serif;font-weight:500;font-size:24px;letter-spacing:.06em;text-transform:uppercase;color:var(--gold)">Dias</th>
+<th scope="col" style="padding:12px 16px;font-family:Teko,sans-serif;font-weight:500;font-size:24px;letter-spacing:.06em;text-transform:uppercase;color:var(--gold)">Período da manhã</th>
+<th scope="col" style="padding:12px 0 12px 16px;font-family:Teko,sans-serif;font-weight:500;font-size:24px;letter-spacing:.06em;text-transform:uppercase;color:var(--gold)">Período da tarde/noite</th>
 </tr>
 </thead>
 <tbody>
 <tr style="border-bottom:1px solid rgba(201,160,74,.3)">
-<th scope="row" style="padding:16px 16px 16px 0;font-weight:500">Muay Thai iniciante</th>
-<td style="padding:16px">[DIAS]</td><td style="padding:16px">[HORÁRIO]</td>
-<td style="padding:16px 0 16px 16px">Primeiro contato com a arte</td>
-</tr>
-<tr style="border-bottom:1px solid rgba(201,160,74,.3)">
-<th scope="row" style="padding:16px 16px 16px 0;font-weight:500">Muay Thai avançado</th>
-<td style="padding:16px">[DIAS]</td><td style="padding:16px">[HORÁRIO]</td>
-<td style="padding:16px 0 16px 16px">Quem já treina e quer sparring</td>
-</tr>
-<tr style="border-bottom:1px solid rgba(201,160,74,.3)">
-<th scope="row" style="padding:16px 16px 16px 0;font-weight:500">Condicionamento</th>
-<td style="padding:16px">[DIAS]</td><td style="padding:16px">[HORÁRIO]</td>
-<td style="padding:16px 0 16px 16px">Fôlego e força, sem contato</td>
+<th scope="row" style="padding:16px 16px 16px 0;font-weight:500">Segunda, quarta e sexta</th>
+<td style="padding:16px">6h, 7h e 9h</td>
+<td style="padding:16px 0 16px 16px">17h (kids), 18h e 19h30</td>
 </tr>
 <tr>
-<th scope="row" style="padding:16px 16px 16px 0;font-weight:500">Equipe de competição</th>
-<td style="padding:16px">[DIAS]</td><td style="padding:16px">[HORÁRIO]</td>
-<td style="padding:16px 0 16px 16px">Atletas com data de luta</td>
+<th scope="row" style="padding:16px 16px 16px 0;font-weight:500">Terça e quinta</th>
+<td style="padding:16px">7h, 8h e 9h30</td>
+<td style="padding:16px 0 16px 16px">16h, 17h, 18h30 (kids) e 19h30</td>
 </tr>
 </tbody>
 </table>
