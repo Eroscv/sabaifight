@@ -105,15 +105,23 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
 .form-msg{margin:12px 0 0;font-size:14px}
 .form-msg.ok{color:#2f6f3e}
 .form-msg.err{color:#a33}
-.exit-overlay{position:fixed;inset:0;z-index:80;background:rgba(8,8,10,.6);display:none;align-items:center;justify-content:center;padding:20px}
+.exit-overlay{position:fixed;inset:0;z-index:80;background:rgba(8,8,10,.72);display:none;align-items:center;justify-content:center;padding:20px}
 .exit-overlay.open{display:flex}
-.exit-card{background:var(--ivory);color:#1a1812;width:100%;max-width:440px;border-top:4px solid var(--gold);padding:32px 28px 28px;position:relative;box-sizing:border-box}
-.exit-close{position:absolute;top:12px;right:12px;width:36px;height:36px;display:flex;align-items:center;justify-content:center;background:transparent;border:0;color:#5b5646;cursor:pointer}
-.exit-close:hover{color:#1a1812}
-.exit-decline{margin:14px 0 0;font-size:14px;color:#5b5646;background:none;border:0;padding:0;text-decoration:underline;cursor:pointer}
+.exit-card{background:var(--ivory);color:#1a1812;width:100%;max-width:440px;padding:0;position:relative;box-sizing:border-box;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.4)}
+.exit-top{background:var(--ink);padding:30px 28px 22px;text-align:center;position:relative;border-bottom:3px solid var(--gold)}
+.exit-body{padding:26px 28px 28px}
+.exit-close{position:absolute;top:10px;right:10px;width:36px;height:36px;display:flex;align-items:center;justify-content:center;background:transparent;border:0;color:var(--gold-lt);cursor:pointer}
+.exit-close:hover{color:#fff}
+.exit-input{display:flex;flex-direction:column;gap:6px;font-weight:500;font-size:14px;letter-spacing:.02em;color:#5b5646;text-transform:uppercase}
+.exit-input input{font:inherit;text-transform:none;letter-spacing:0;font-size:17px;color:var(--ink);background:transparent;border:0;border-bottom:2px solid var(--gold);padding:9px 2px;min-height:22px}
+.exit-input input:focus-visible{outline:2px solid var(--gold-dk);outline-offset:2px}
+.exit-cta{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;font:inherit;border:0;background:var(--gold);color:var(--ink);padding:14px 20px;min-height:48px;cursor:pointer;font-family:Teko,sans-serif;font-weight:600;font-size:21px;letter-spacing:.03em;text-transform:uppercase;transform:skewX(-10deg)}
+.exit-cta span{display:inline-flex;align-items:center;gap:10px;transform:skewX(10deg)}
+.exit-cta:hover{background:var(--gold-lt)}
+.exit-decline{display:block;margin:14px auto 0;font-size:14px;color:#5b5646;background:none;border:0;padding:0;text-decoration:underline;cursor:pointer}
 @media (max-width:640px){
   .exit-overlay{align-items:flex-end;padding:0}
-  .exit-card{max-width:none;border-top:0;border-top:4px solid var(--gold)}
+  .exit-card{max-width:none}
 }
 @media (prefers-reduced-motion:no-preference){
   .exit-card{animation:rv .25s ease both}
@@ -470,22 +478,27 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
 
 <div id="exitOverlay" class="exit-overlay" role="dialog" aria-modal="true" aria-labelledby="exitTitle">
 <div class="exit-card">
+<div class="exit-top">
 <button type="button" id="exitClose" class="exit-close" aria-label="Fechar">
 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="5" y1="5" x2="19" y2="19"></line><line x1="19" y1="5" x2="5" y2="19"></line></svg>
 </button>
-<p id="exitTitle" style="margin:0;font-family:Teko,sans-serif;font-weight:700;font-size:34px;line-height:1.1;text-transform:uppercase;color:var(--ink)">Antes de você ir...</p>
-<p style="margin:10px 0 0;font-size:16px;color:#4a4636">Deixa seu WhatsApp que a gente te chama pra marcar sua aula experimental. Sem compromisso, sem pressa.</p>
-<form id="exitForm" style="margin-top:20px;display:flex;flex-direction:column;gap:16px">
-<label style="display:flex;flex-direction:column;gap:6px;font-weight:500;font-size:15px">Nome
-<input type="text" id="exitNome" name="nome" autocomplete="name" required style="font:inherit;font-size:16px;color:var(--ink);background:#fff;border:1px solid rgba(8,8,10,.25);padding:10px 12px;min-height:24px">
+<img src="logo.webp" alt="" style="height:44px;width:auto;display:block;margin:0 auto 10px;mix-blend-mode:lighten">
+<p id="exitTitle" style="margin:0;font-family:Teko,sans-serif;font-weight:700;font-size:32px;line-height:1.05;letter-spacing:.02em;text-transform:uppercase;color:var(--gold)">Antes de você ir...</p>
+</div>
+<div class="exit-body">
+<p style="margin:0;font-size:16px;color:#4a4636;text-align:center">Deixa seu WhatsApp que a gente te chama pra marcar sua aula experimental. Sem compromisso, sem pressa.</p>
+<form id="exitForm" style="margin-top:22px;display:flex;flex-direction:column;gap:18px">
+<label class="exit-input">Nome
+<input type="text" id="exitNome" name="nome" autocomplete="name" required>
 </label>
-<label style="display:flex;flex-direction:column;gap:6px;font-weight:500;font-size:15px">WhatsApp
-<input type="tel" id="exitWhats" name="whatsapp" autocomplete="tel" required style="font:inherit;font-size:16px;color:var(--ink);background:#fff;border:1px solid rgba(8,8,10,.25);padding:10px 12px;min-height:24px">
+<label class="exit-input">WhatsApp
+<input type="tel" id="exitWhats" name="whatsapp" autocomplete="tel" required>
 </label>
-<button type="submit" id="exitSubmit" style="display:inline-block;font:inherit;border:0;background:var(--gold);color:var(--ink);padding:12px 24px;min-height:48px;cursor:pointer;font-family:Teko,sans-serif;font-weight:600;font-size:21px;letter-spacing:.04em;text-transform:uppercase">Quero que me chamem no WhatsApp</button>
+<button type="submit" id="exitSubmit" class="exit-cta"><span><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>Quero que me chamem</span></button>
 </form>
-<p id="exitMsg" class="form-msg" role="status" aria-live="polite"></p>
+<p id="exitMsg" class="form-msg" role="status" aria-live="polite" style="text-align:center"></p>
 <button type="button" id="exitDecline" class="exit-decline">Agora não, obrigado</button>
+</div>
 </div>
 </div>
 
