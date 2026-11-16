@@ -103,6 +103,19 @@ section[id]{scroll-margin-top:84px}
 .prajied-row:last-child{border-bottom:0}
 .prajied-cord{display:block;width:72px;height:22px;border-radius:999px;flex-shrink:0;box-shadow:inset 0 2px 2px rgba(255,255,255,.4),inset 0 -3px 4px rgba(0,0,0,.4),0 1px 0 rgba(0,0,0,.3)}
 .prajied-row span:last-child{font-size:17px}
+.tl-list{list-style:none;margin:48px 0 0;padding:0;position:relative}
+.tl-list::before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:linear-gradient(var(--gold),rgba(201,160,74,.25))}
+.tl-item{position:relative;padding:0 0 44px 44px}
+.tl-item:last-child{padding-bottom:0}
+.tl-item::before{content:"";position:absolute;left:0;top:6px;width:12px;height:12px;border:2px solid var(--gold);background:var(--ink);transform:rotate(45deg)}
+.tl-now::before{background:var(--gold)}
+.tl-year{display:block;font-family:Teko,sans-serif;font-weight:600;font-size:34px;line-height:1;text-transform:uppercase;color:var(--gold)}
+.tl-title{margin:2px 0 0;font-size:20px;font-weight:600;color:#fff}
+.tl-item p{margin:8px 0 0;max-width:60ch;color:#c9c3b3}
+.tl-photos{display:flex;flex-wrap:wrap;gap:16px;margin-top:18px}
+.tl-photos img{width:min(190px,calc(50% - 8px));height:auto;display:block;border:1px solid rgba(201,160,74,.5);box-shadow:8px 8px 0 rgba(201,160,74,.35)}
+.tl-now .tl-photos img{width:min(240px,100%)}
+@media (max-width:600px){#professor>div{padding:72px 16px}}
 .faq-item{display:grid;grid-template-rows:auto 0fr;padding-bottom:0;transition:grid-template-rows .3s ease,padding-bottom .3s ease}
 .faq-item.open{grid-template-rows:auto 1fr;padding-bottom:24px}
 .faq-item .faq-a{min-height:0;overflow:hidden;margin:0;max-width:62ch;color:#4a4636;opacity:0;transition:opacity .3s ease}
@@ -240,17 +253,55 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
 <h2 style="margin:4px 0 0;font-family:Teko,sans-serif;font-weight:600;font-size:clamp(52px, 6vw, 88px);line-height:1;text-transform:uppercase;color:var(--ink)">Nossa história</h2>
 <p style="margin:24px 0 0">O Muay Thai nasceu na Tailândia e usa punhos, cotovelos, joelhos e canelas, as oito armas. A Sabai Fight ensina essa arte em Americana com técnica limpa, do primeiro soco ao primeiro sparring.</p>
 <p style="margin:16px 0 0">Sabai, em tailandês, remete a bem-estar e tranquilidade. Aqui, isso quer dizer um ambiente acolhedor pra quem está começando, com o rigor técnico que leva quem quer competir.</p>
-<div style="margin:36px 0 0;padding:28px 0 0;border-top:1px solid rgba(26,24,18,.18);display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start">
-<img src="professor-lucao.webp" alt="Professor Lucão segurando aparadores de chute na Sabai Fight" loading="lazy" width="240" height="285" style="flex:0 0 auto;width:min(240px,calc(100% - 12px));height:auto;display:block;border:3px solid var(--ink);box-shadow:12px 12px 0 var(--gold);margin:0 12px 12px 0">
-<div style="flex:1 1 260px;min-width:0">
-<p style="margin:0;font-size:15px;letter-spacing:.3em;text-transform:uppercase;color:#5b5646">O professor</p>
-<h3 style="margin:2px 0 0;font-family:Teko,sans-serif;font-weight:600;font-size:40px;line-height:1;text-transform:uppercase;color:var(--ink)">Professor Lucão</h3>
-<p style="margin:12px 0 0">Tudo começou em 2014. Aos 24 anos, ele conheceu o Muay Thai para combater a ansiedade, e o esporte o transformou completamente. Em 2015, fez duas lutas em campeonatos internos da região e venceu as duas.</p>
-<p style="margin:12px 0 0">Competir nunca foi o foco: o sonho sempre foi ser treinador. São mais de 12 anos de Muay Thai, cursos com grandes nomes tailandeses, seminários e cursos de regras, e o grau marrom e branco há mais de 2 anos.</p>
-<p style="margin:12px 0 0">Já ensinou em escolas de Muay Thai, em projeto social com menores e no trabalho com crianças atípicas. Agora, toda essa experiência está na Sabai Fight.</p>
 </div>
 </div>
+</section>
+
+<!-- Trajetória do professor -->
+<section id="professor" style="background:var(--ink);color:#EDE7D8;border-bottom:1px solid rgba(201,160,74,.35)">
+<div style="max-width:960px;margin:0 auto;padding:96px 48px">
+<p style="margin:0;font-size:15px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)">O professor</p>
+<h2 style="margin:4px 0 0;font-family:Teko,sans-serif;font-weight:600;font-size:clamp(48px, 6vw, 84px);line-height:1;text-transform:uppercase;color:#fff">Professor Lucão</h2>
+<p style="margin:12px 0 0;font-size:19px;color:#b3ad9d">De aluno sonhador a professor. Essa é a história dele.</p>
+<ol class="tl-list">
+<li class="tl-item">
+<span class="tl-year">2014</span>
+<h3 class="tl-title">O começo</h3>
+<p>Aos 24 anos, ele conheceu o Muay Thai para combater a ansiedade. E o esporte o transformou completamente.</p>
+</li>
+<li class="tl-item">
+<span class="tl-year">2015</span>
+<h3 class="tl-title">As primeiras lutas</h3>
+<p>Duas lutas em campeonatos internos da região. Duas vitórias.</p>
+<div class="tl-photos">
+<img src="lucao-2015-a.webp" alt="Lucão em 2015, de regata amarela, com a mão enfaixada após uma luta" loading="lazy" width="190" height="279">
+<img src="lucao-2015-b.webp" alt="Lucão em 2015 segurando o troféu de uma vitória" loading="lazy" width="190" height="279">
 </div>
+</li>
+<li class="tl-item">
+<span class="tl-year">O sonho</span>
+<h3 class="tl-title">Ser professor</h3>
+<p>Competir nunca foi o foco. O sonho sempre foi ser treinador de Muay Thai.</p>
+</li>
+<li class="tl-item">
+<span class="tl-year">+12 anos</span>
+<h3 class="tl-title">A caminhada</h3>
+<p>Cursos com grandes nomes tailandeses, seminários e cursos de regras. Grau marrom e branco há mais de 2 anos.</p>
+</li>
+<li class="tl-item">
+<span class="tl-year">Ensinar</span>
+<h3 class="tl-title">Para todos</h3>
+<p>Aulas em escolas de Muay Thai, projeto social com menores e trabalho com crianças atípicas.</p>
+</li>
+<li class="tl-item tl-now">
+<span class="tl-year">Hoje</span>
+<h3 class="tl-title">Sabai Fight</h3>
+<p>Toda essa experiência agora em escola própria, em Americana.</p>
+<div class="tl-photos">
+<img src="professor-lucao.webp" alt="Professor Lucão segurando aparadores de chute na Sabai Fight" loading="lazy" width="240" height="285">
+</div>
+</li>
+</ol>
 </div>
 </section>
 
