@@ -103,6 +103,19 @@ section[id]{scroll-margin-top:84px}
 .prajied-row:last-child{border-bottom:0}
 .prajied-cord{display:block;width:72px;height:22px;border-radius:999px;flex-shrink:0;box-shadow:inset 0 2px 2px rgba(255,255,255,.4),inset 0 -3px 4px rgba(0,0,0,.4),0 1px 0 rgba(0,0,0,.3)}
 .prajied-row span:last-child{font-size:17px}
+.hor-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:24px;margin-top:40px}
+.hor-card{border:1px solid rgba(201,160,74,.35);border-top:4px solid var(--gold);background:rgba(255,255,255,.03);padding:24px 28px 28px}
+.hor-dias{margin:0;font-family:Teko,sans-serif;font-weight:600;font-size:32px;line-height:1.05;text-transform:uppercase;color:#fff}
+.hor-periodo{margin-top:20px}
+.hor-rotulo{margin:0 0 10px;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.hor-lista{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
+.hor-lista li{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border:1px solid rgba(237,231,216,.25);font-family:Teko,sans-serif;font-weight:500;font-size:26px;line-height:1;color:#EDE7D8}
+.hor-lista li.kids{background:var(--gold);border-color:var(--gold);color:var(--ink)}
+.hor-lista li span,.hor-legenda-kids{font-family:system-ui,sans-serif;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.hor-lista li span{padding:3px 6px;background:var(--ink);color:var(--gold)}
+.hor-legenda{margin:20px 0 0;font-size:14px;color:#b3ad9d}
+.hor-legenda-kids{display:inline-block;padding:3px 8px;margin-right:6px;background:var(--gold);color:var(--ink)}
+@media (max-width:600px){.hor-card{padding:20px}}
 .reveal{opacity:0;transform:translateY(32px);transition:opacity .7s ease,transform .7s ease}
 .reveal.visivel{opacity:1;transform:none}
 #inauguracao{position:relative;overflow:hidden}
@@ -431,30 +444,32 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
 <section id="aulas" style="background:var(--ink)">
 <div style="max-width:1360px;margin:0 auto;padding:96px 48px">
 <h2 style="margin:0;font-family:Teko,sans-serif;font-weight:600;font-size:clamp(48px, 6vw, 84px);line-height:1;text-transform:uppercase;color:var(--gold)">Aulas e horários</h2>
-<p style="margin:12px 0 0;max-width:56ch">A primeira aula é experimental, pra você decidir com calma. Tem turma infantil (kids) e adulta em todos os horários.</p>
-<div style="margin-top:40px;overflow-x:auto">
-<table style="width:100%;min-width:560px;border-collapse:collapse;text-align:left">
-<thead>
-<tr style="border-bottom:2px solid var(--gold)">
-<th scope="col" style="padding:12px 16px 12px 0;font-family:Teko,sans-serif;font-weight:500;font-size:24px;letter-spacing:.06em;text-transform:uppercase;color:var(--gold)">Dias</th>
-<th scope="col" style="padding:12px 16px;font-family:Teko,sans-serif;font-weight:500;font-size:24px;letter-spacing:.06em;text-transform:uppercase;color:var(--gold)">Período da manhã</th>
-<th scope="col" style="padding:12px 0 12px 16px;font-family:Teko,sans-serif;font-weight:500;font-size:24px;letter-spacing:.06em;text-transform:uppercase;color:var(--gold)">Período da tarde/noite</th>
-</tr>
-</thead>
-<tbody>
-<tr style="border-bottom:1px solid rgba(201,160,74,.3)">
-<th scope="row" style="padding:16px 16px 16px 0;font-weight:500">Segunda, quarta e sexta</th>
-<td style="padding:16px">6h, 7h e 9h</td>
-<td style="padding:16px 0 16px 16px">17h (kids), 18h e 19h30</td>
-</tr>
-<tr>
-<th scope="row" style="padding:16px 16px 16px 0;font-weight:500">Terça e quinta</th>
-<td style="padding:16px">7h, 8h e 9h30</td>
-<td style="padding:16px 0 16px 16px">16h, 17h, 18h30 (kids) e 19h30</td>
-</tr>
-</tbody>
-</table>
+<p style="margin:12px 0 0;max-width:56ch">A primeira aula é experimental, pra você decidir com calma. As turmas kids estão em destaque; os demais horários são para adultos.</p>
+<div class="hor-grid">
+<article class="hor-card">
+<h3 class="hor-dias">Segunda, quarta e sexta</h3>
+<div class="hor-periodo">
+<p class="hor-rotulo">Manhã</p>
+<ul class="hor-lista"><li>6h</li><li>7h</li><li>9h</li></ul>
 </div>
+<div class="hor-periodo">
+<p class="hor-rotulo">Tarde e noite</p>
+<ul class="hor-lista"><li class="kids">17h <span>Kids</span></li><li>18h</li><li>19h30</li></ul>
+</div>
+</article>
+<article class="hor-card">
+<h3 class="hor-dias">Terça e quinta</h3>
+<div class="hor-periodo">
+<p class="hor-rotulo">Manhã</p>
+<ul class="hor-lista"><li>7h</li><li>8h</li><li>9h30</li></ul>
+</div>
+<div class="hor-periodo">
+<p class="hor-rotulo">Tarde e noite</p>
+<ul class="hor-lista"><li>16h</li><li>17h</li><li class="kids">18h30 <span>Kids</span></li><li>19h30</li></ul>
+</div>
+</article>
+</div>
+<p class="hor-legenda"><span class="hor-legenda-kids">Kids</span> turma infantil · demais horários: turma adulta</p>
 </div>
 </section>
 
