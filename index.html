@@ -103,6 +103,10 @@ section[id]{scroll-margin-top:84px}
 .prajied-row:last-child{border-bottom:0}
 .prajied-cord{display:block;width:72px;height:22px;border-radius:999px;flex-shrink:0;box-shadow:inset 0 2px 2px rgba(255,255,255,.4),inset 0 -3px 4px rgba(0,0,0,.4),0 1px 0 rgba(0,0,0,.3)}
 .prajied-row span:last-child{font-size:17px}
+.inaug-count{display:flex;gap:10px}
+.inaug-count div{min-width:58px;padding:6px 8px;text-align:center;background:rgba(8,8,10,.1);border:1px solid rgba(8,8,10,.25)}
+.inaug-count b{display:block;font-family:Teko,sans-serif;font-weight:700;font-size:30px;line-height:1}
+.inaug-count small{display:block;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
 .tl-list{list-style:none;margin:48px 0 0;padding:0;position:relative}
 .tl-list::before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:linear-gradient(var(--gold),rgba(201,160,74,.25))}
 .tl-item{position:relative;padding:0 0 44px 44px}
@@ -236,11 +240,17 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
 </div>
 </section>
 
-<!-- Pré-venda -->
-<section style="background:var(--gold);color:var(--ink)">
-<div style="max-width:1360px;margin:0 auto;padding:18px 48px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 24px">
-<span style="font-family:Teko,sans-serif;font-weight:700;font-size:32px;line-height:1.1;text-transform:uppercase">Pré-venda em breve</span>
-<span style="font-weight:500">Os planos abrem primeiro no Instagram @sabai_fight_.</span>
+<!-- Inauguração (some sozinha depois de 28/11/2026) -->
+<section id="inauguracao" style="background:var(--gold);color:var(--ink)">
+<div style="max-width:1360px;margin:0 auto;padding:22px 48px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 32px">
+<div>
+<span style="display:block;font-family:Teko,sans-serif;font-weight:700;font-size:clamp(32px,4vw,44px);line-height:1;text-transform:uppercase">Inauguração 28/11 · a partir das 10h</span>
+<span style="display:block;margin-top:4px;font-weight:500">Venha conhecer a escola e o Professor Lucão. Rua Vicente de Carvalho, 222, Vila Amorim, Americana.</span>
+</div>
+<div style="display:flex;flex-wrap:wrap;align-items:center;gap:16px 24px">
+<div id="inauguracaoCount" class="inaug-count" aria-live="off"></div>
+<a href="https://wa.me/5519983421686?text=Ol%C3%A1!%20Vou%20na%20inaugura%C3%A7%C3%A3o%20da%20Sabai%20Fight%20dia%2028%2F11." style="display:inline-block;background:var(--ink);color:var(--gold-lt);text-decoration:none;transform:skewX(-14deg);padding:12px 28px;min-height:44px"><span style="display:inline-block;transform:skewX(14deg);font-family:Teko,sans-serif;font-weight:600;font-size:22px;letter-spacing:.06em;text-transform:uppercase">Confirmar presença</span></a>
+</div>
 </div>
 </section>
 
@@ -605,6 +615,29 @@ document.querySelectorAll('.mobile-link').forEach(function (a) {
 });
 
 // ---------- FAQ accordion ----------
+// ---------- Inauguração: contagem regressiva ----------
+// Começa 28/11/2026 às 10h (horário de Brasília). No dia mostra "É hoje";
+// a partir de 29/11 a faixa inteira some.
+(function () {
+  var faixa = document.getElementById('inauguracao');
+  var box = document.getElementById('inauguracaoCount');
+  var inicio = new Date('2026-11-28T10:00:00-03:00').getTime();
+  var fim = new Date('2026-11-29T00:00:00-03:00').getTime();
+  function atualiza() {
+    var agora = Date.now();
+    if (agora >= fim) { faixa.hidden = true; return; }
+    if (agora >= inicio - 10 * 3600000) {
+      box.innerHTML = '<div><b>É hoje!</b><small>a partir das 10h</small></div>';
+      return;
+    }
+    var s = Math.floor((inicio - agora) / 1000);
+    var partes = [[Math.floor(s / 86400), 'dias'], [Math.floor(s % 86400 / 3600), 'horas'], [Math.floor(s % 3600 / 60), 'min']];
+    box.innerHTML = partes.map(function (p) { return '<div><b>' + p[0] + '</b><small>' + p[1] + '</small></div>'; }).join('');
+    setTimeout(atualiza, 30000);
+  }
+  atualiza();
+})();
+
 document.querySelectorAll('.faq-toggle').forEach(function (btn) {
   btn.addEventListener('click', function () {
     var item = btn.closest('.faq-item');
