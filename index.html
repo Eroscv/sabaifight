@@ -103,6 +103,23 @@ section[id]{scroll-margin-top:84px}
 .prajied-row:last-child{border-bottom:0}
 .prajied-cord{display:block;width:72px;height:22px;border-radius:999px;flex-shrink:0;box-shadow:inset 0 2px 2px rgba(255,255,255,.4),inset 0 -3px 4px rgba(0,0,0,.4),0 1px 0 rgba(0,0,0,.3)}
 .prajied-row span:last-child{font-size:17px}
+.fundadores{margin-top:40px;display:grid;gap:32px}
+.fundadores-texto{margin:0;max-width:60ch;font-size:20px;color:#EDE7D8}
+.fundadores-lista{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:20px}
+.fundadores-lista li{border-top:2px solid var(--gold);padding-top:16px}
+.fundadores-lista b{display:block;font-family:Teko,sans-serif;font-weight:600;font-size:28px;line-height:1.1;text-transform:uppercase;color:var(--gold-lt)}
+.fundadores-lista span{display:block;margin-top:6px;color:#c9c3b3}
+.fundadores-cta{justify-self:start;display:inline-block;background:var(--gold);color:var(--ink);text-decoration:none;transform:skewX(-14deg);padding:14px 36px;transition:background-color .2s ease}
+.fundadores-cta:hover{background:var(--gold-lt)}
+.fundadores-cta span{display:inline-block;transform:skewX(14deg);font-family:Teko,sans-serif;font-weight:600;font-size:24px;letter-spacing:.06em;text-transform:uppercase}
+.dep-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:24px;margin-top:48px}
+.dep-card{margin:0;position:relative;padding:40px 28px 28px;border:1px solid rgba(201,160,74,.3);background:rgba(255,255,255,.03)}
+.dep-card::before{content:"\201C";position:absolute;top:-6px;left:22px;font-family:Georgia,serif;font-size:96px;line-height:1;color:var(--gold)}
+.dep-card blockquote{margin:0;font-size:18px;color:#EDE7D8}
+.dep-card figcaption{margin-top:20px;display:flex;align-items:center;gap:12px}
+.dep-inicial{flex:0 0 44px;height:44px;display:flex;align-items:center;justify-content:center;background:var(--gold);color:var(--ink);font-family:Teko,sans-serif;font-weight:700;font-size:26px}
+.dep-card figcaption b{display:block;color:#fff}
+.dep-card figcaption small{display:block;color:#b3ad9d}
 .hor-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:24px;margin-top:40px}
 .hor-card{border:1px solid rgba(201,160,74,.35);border-top:4px solid var(--gold);background:rgba(255,255,255,.03);padding:24px 28px 28px}
 .hor-dias{margin:0;font-family:Teko,sans-serif;font-weight:600;font-size:32px;line-height:1.05;text-transform:uppercase;color:#fff}
@@ -496,24 +513,28 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
 </div>
 </section>
 
-<!-- Depoimentos -->
-<section style="background:var(--ink)">
+<!-- Depoimentos
+Escola nova: enquanto não houver depoimentos reais, a seção mostra a chamada da turma fundadora.
+Para publicar depoimentos, troque o bloco .fundadores por:
+<div class="dep-grid">
+<figure class="dep-card">
+<blockquote>Texto do depoimento, nas palavras do aluno.</blockquote>
+<figcaption><span class="dep-inicial">J</span><span><b>Nome do aluno</b><small>Treina há 3 meses · turma adulta</small></span></figcaption>
+</figure>
+</div>
+-->
+<section id="depoimentos" style="background:var(--ink)">
 <div style="max-width:1360px;margin:0 auto;padding:96px 48px">
-<p style="margin:0;font-size:15px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-lt)">Quem já treina com a gente</p>
-<h2 style="margin:4px 0 0;font-family:Teko,sans-serif;font-weight:600;font-size:clamp(48px, 6vw, 84px);line-height:1;text-transform:uppercase;color:#fff">Depoimentos</h2>
-<div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:32px;margin-top:48px">
-<figure style="margin:0;border-top:2px solid var(--gold)">
-<blockquote style="margin:20px 0 0;font-size:19px;color:#EDE7D8">[Depoimento de um aluno sobre a experiência na Sabai Fight]</blockquote>
-<figcaption style="margin-top:16px;font-family:Teko,sans-serif;font-size:22px;letter-spacing:.03em;text-transform:uppercase;color:var(--gold-lt)">[Nome do aluno] · [tempo de treino]</figcaption>
-</figure>
-<figure style="margin:0;border-top:2px solid var(--gold)">
-<blockquote style="margin:20px 0 0;font-size:19px;color:#EDE7D8">[Depoimento de um aluno sobre a experiência na Sabai Fight]</blockquote>
-<figcaption style="margin-top:16px;font-family:Teko,sans-serif;font-size:22px;letter-spacing:.03em;text-transform:uppercase;color:var(--gold-lt)">[Nome do aluno] · [tempo de treino]</figcaption>
-</figure>
-<figure style="margin:0;border-top:2px solid var(--gold)">
-<blockquote style="margin:20px 0 0;font-size:19px;color:#EDE7D8">[Depoimento de um aluno sobre a experiência na Sabai Fight]</blockquote>
-<figcaption style="margin-top:16px;font-family:Teko,sans-serif;font-size:22px;letter-spacing:.03em;text-transform:uppercase;color:var(--gold-lt)">[Nome do aluno] · [tempo de treino]</figcaption>
-</figure>
+<p style="margin:0;font-size:15px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-lt)">Escola nova em Americana</p>
+<h2 style="margin:4px 0 0;font-family:Teko,sans-serif;font-weight:600;font-size:clamp(48px, 6vw, 84px);line-height:1;text-transform:uppercase;color:#fff">Faça parte da turma fundadora</h2>
+<div class="fundadores">
+<p class="fundadores-texto">A Sabai Fight abre as portas em 28/11. Os primeiros alunos vão escrever os depoimentos que aparecem aqui, e começam a história da escola junto com o Professor Lucão.</p>
+<ul class="fundadores-lista">
+<li><b>+12 anos de Muay Thai</b><span>Aulas com o Professor Lucão, grau marrom e branco.</span></li>
+<li><b>Do zero</b><span>Ninguém precisa chegar sabendo. Todo mundo começa junto.</span></li>
+<li><b>Aula experimental</b><span>Você treina uma vez antes de decidir.</span></li>
+</ul>
+<a href="#contato" class="fundadores-cta"><span>Quero ser da turma fundadora</span></a>
 </div>
 </div>
 </section>
