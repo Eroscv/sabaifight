@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://sabaifight.com.br/sitemap.xml
+Sitemap: https://www.sabaifight.com.br/sitemap.xml
