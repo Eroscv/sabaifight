@@ -669,7 +669,31 @@ Para publicar depoimentos, troque o bloco .fundadores por:
 (function () {
   var CHAVE = 'sf_cookies';
   var MAPA = 'https://www.google.com/maps?q=Rua+Vicente+de+Carvalho,+222,+Vila+Amorim,+Americana,+SP&output=embed';
+  // Google Ads: preencha com o ID (AW-...) e o rótulo da conversão "Contatos".
+  // Vazio = nenhuma tag é carregada.
+  var ADS_ID = '';
+  var ADS_ROTULO = '';
   var faixa = document.getElementById('cookies');
+  if (ADS_ID) {
+    faixa.querySelector('p').innerHTML = 'Usamos cookies do Google para mostrar o mapa e medir os resultados dos nossos anúncios. Você permite? <a href="privacidade.html#cookies" style="color:var(--gold-lt)">Saiba mais</a>';
+  }
+  function carregarAds() {
+    if (!ADS_ID || window.gtag) return;
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { dataLayer.push(arguments); };
+    gtag('js', new Date());
+    gtag('config', ADS_ID);
+    var s = document.createElement('script');
+    s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=' + ADS_ID;
+    document.head.appendChild(s);
+  }
+  // Conta um contato (clique no WhatsApp ou formulário enviado), só com consentimento.
+  window.sfConversao = function () {
+    if (window.gtag && ADS_ROTULO) gtag('event', 'conversion', { send_to: ADS_ID + '/' + ADS_ROTULO });
+  };
+  document.addEventListener('click', function (e) {
+    if (e.target.closest('a[href^="https://wa.me/"]')) window.sfConversao();
+  });
   function ler() { try { return localStorage.getItem(CHAVE); } catch (e) { return null; } }
   function salvar(v) { try { localStorage.setItem(CHAVE, v); } catch (e) {} }
   function carregarMapa() {
@@ -683,7 +707,7 @@ Para publicar depoimentos, troque o bloco .fundadores por:
   }
   function escolher(v) {
     salvar(v); faixa.hidden = true;
-    if (v === 'aceitar') carregarMapa();
+    if (v === 'aceitar') { carregarMapa(); carregarAds(); }
   }
   document.addEventListener('click', function (e) {
     var b = e.target.closest('[data-cookies]');
@@ -691,7 +715,7 @@ Para publicar depoimentos, troque o bloco .fundadores por:
   });
   document.getElementById('cookiesPrefs').addEventListener('click', function () { faixa.hidden = false; });
   var v = ler();
-  if (v === 'aceitar') carregarMapa();
+  if (v === 'aceitar') { carregarMapa(); carregarAds(); }
   else if (v !== 'recusar') faixa.hidden = false;
 })();
 </script>
@@ -830,6 +854,7 @@ function enviarContato(nome, whatsapp, experiencia, msgEl, btnEl, formEl, onDone
       msgEl.className = 'form-msg ok';
       formEl.reset();
       try { localStorage.setItem('sf_contato_enviado', '1'); } catch (e) {}
+      if (window.sfConversao) window.sfConversao();
       if (onDone) onDone(true);
     })
     .catch(function () {
